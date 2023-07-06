@@ -24,21 +24,23 @@ const valorSubTotal = document.getElementById("valor-subtotal");
 
 
 function updateSubTotal (quantidadeItens) {
-  valorSubTotal.innerText = produtos[0].valor * quantidadeItens
+  const valorTotal = produtos[0].valor * quantidadeItens
+  valorSubTotal.innerText = valorTotal.toFixed(2)
 }
 
 // Adicionando ao Botão.
 addButton.addEventListener("click", ()=> {
   input.value = Number(input.value) + 1
-  updateSubTotal(input.value)
+  updateSubTotal(Number(input.value))
 });
 
 // Diminuindo e verificando
 lessButton.addEventListener("click", () => {
   if (input.value > 1) {
     input.value = Number(input.value) - 1
+    updateSubTotal(Number(input.value))
  }
 })
 
 
-updateSubTotal()
+updateSubTotal(Number(input.value))
