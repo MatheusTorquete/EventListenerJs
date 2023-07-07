@@ -21,11 +21,13 @@ const addButton = document.getElementById("btn-adicionar-produto-01");
 const input = document.getElementById("quantidade-produto-01");
 const lessButton = document.getElementById("btn-subtrair-produto-01")
 const valorSubTotal = document.getElementById("valor-subtotal");
-
+const quantidadeSubTotal = document.getElementById("quantidade-subtotal")
 
 function updateSubTotal (quantidadeItens) {
+  const sufixo = quantidadeItens === 1 ? ' item' : ' itens'
   const valorTotal = produtos[0].valor * quantidadeItens
   valorSubTotal.innerText = valorTotal.toFixed(2)
+  quantidadeSubTotal.innerText = quantidadeItens + sufixo
 }
 
 // Adicionando ao Botão.
